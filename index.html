@@ -3,252 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Web Page</title>
+  <title>Minimal Responsive Page</title>
   <style>
-    /* CSS Variables */
-    :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --bg-color: #f8fafc;
-      --surface-color: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
-      --max-width: 1200px;
-      --radius: 8px;
-    }
-
-    /* CSS Reset & General Styles */
+    /* Reset & Sharp Edges */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      border-radius: 0 !important;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text-main);
-      background-color: var(--bg-color);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+      color: #111;
+      padding: 0 1rem;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 0 1.5rem;
     }
 
-    /* Header & Navigation */
-    .header {
-      background-color: var(--surface-color);
-      border-bottom: 1px solid var(--border-color);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
+    /* Minimal Responsive Header */
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 4rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 2px solid #111;
     }
 
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .nav-links {
+    nav {
       display: flex;
-      gap: 1.5rem;
-      list-style: none;
+      gap: 1rem;
     }
 
-    .nav-links a {
-      color: var(--text-main);
+    a {
+      color: inherit;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-main);
     }
 
     /* Hero Section */
     .hero {
-      padding: 4rem 0;
-      text-align: center;
-      background-color: var(--surface-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: -0.025em;
-    }
-
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid #ddd;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--primary);
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: var(--radius);
-      font-weight: 600;
-      transition: background-color 0.2s;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #111;
+      color: #fff;
+      border: 1px solid #111;
     }
 
     .btn:hover {
-      background-color: var(--primary-hover);
+      background: #fff;
+      color: #111;
     }
 
-    /* Main Content & Responsive Grid */
-    .main-content {
-      flex: 1;
-      padding: 3rem 0;
-    }
-
+    /* Responsive Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
     }
 
     .card {
-      background: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 1.5rem;
+      border: 1px solid #111;
+      padding: 1.25rem;
     }
 
-    .card h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-    }
-
-    /* Footer */
-    .footer {
-      background-color: var(--surface-color);
-      border-top: 1px solid var(--border-color);
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--text-muted);
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.5rem 0;
       font-size: 0.875rem;
-    }
-
-    /* Mobile Breakpoint */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--surface-color);
-        flex-direction: column;
-        padding: 1.5rem;
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 1.875rem;
-      }
+      color: #555;
     }
   </style>
 </head>
 <body>
 
-  <header class="header">
-    <div class="container nav-container">
-      <a href="#" class="logo">BrandLogo</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+  <header>
+    <a href="#" style="font-weight: bold; font-size: 1.25rem;">BRAND</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="container">
-      <h1>Responsive Modern Web Layout</h1>
-      <p>A clean boilerplate designed to scale smoothly across mobile screens, tablets, and desktops.</p>
-      <a href="#get-started" class="btn">Get Started</a>
-    </div>
+    <h1>Ultra-Minimal & Responsive</h1>
+    <p>A lightweight setup using bare-minimum CSS, standard HTML tags, and sharp rectangular edges.</p>
+    <a href="#action" class="btn">Get Started</a>
   </section>
 
-  <main class="main-content">
-    <div class="container">
-      <div class="grid">
-        <article class="card">
-          <h2>Mobile First</h2>
-          <p>Uses relative units and fluid CSS techniques to optimize layout for smartphones.</p>
-        </article>
-        <article class="card">
-          <h2>CSS Grid Layout</h2>
-          <p>Auto-fitting grid columns adjust to available screen width without fixed breakpoints.</p>
-        </article>
-        <article class="card">
-          <h2>Zero Dependencies</h2>
-          <p>Built with semantic HTML5 markup, modern CSS properties, and vanilla JS.</p>
-        </article>
-      </div>
+  <main>
+    <div class="grid">
+      <article class="card">
+        <h3>Feature One</h3>
+        <p>Adapts to screen sizes automatically using CSS Grid standard auto-fit layout.</p>
+      </article>
+      <article class="card">
+        <h3>Feature Two</h3>
+        <p>Sharp 90-degree corners applied globally with zero border radii.</p>
+      </article>
+      <article class="card">
+        <h3>Feature Three</h3>
+        <p>Fast-loading code footprint free of media query clutter or JavaScript dependencies.</p>
+      </article>
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 BrandName. All rights reserved.</p>
-    </div>
+  <footer>
+    <p>&copy; 2026 BrandName. All rights reserved.</p>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
 </body>
 </html>
+
