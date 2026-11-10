@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Page</title>
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --surface-color: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --max-width: 1200px;
+      --radius: 8px;
+    }
+
+    /* CSS Reset & General Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header & Navigation */
+    .header {
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+      background-color: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.025em;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Main Content & Responsive Grid */
+    .main-content {
+      flex: 1;
+      padding: 3rem 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--surface-color);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Mobile Breakpoint */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--surface-color);
+        flex-direction: column;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 1.875rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">BrandLogo</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Responsive Modern Web Layout</h1>
+      <p>A clean boilerplate designed to scale smoothly across mobile screens, tablets, and desktops.</p>
+      <a href="#get-started" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="grid">
+        <article class="card">
+          <h2>Mobile First</h2>
+          <p>Uses relative units and fluid CSS techniques to optimize layout for smartphones.</p>
+        </article>
+        <article class="card">
+          <h2>CSS Grid Layout</h2>
+          <p>Auto-fitting grid columns adjust to available screen width without fixed breakpoints.</p>
+        </article>
+        <article class="card">
+          <h2>Zero Dependencies</h2>
+          <p>Built with semantic HTML5 markup, modern CSS properties, and vanilla JS.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 BrandName. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
