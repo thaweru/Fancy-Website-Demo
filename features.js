@@ -11,5 +11,5 @@ function changeHref() {
     link.href =  "stylesheets/" + styles[c%n];
 	c++;
     // Optional: update link text
-    butn.value = styles[c%n];
+    butn.value = styles[c%n].split(".")[0];
 }
