@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minimal Responsive Page</title>
-  <link rel="stylesheet" href="stylesheets/Minimal.css">
-  <script src="features.js"></script>
+  <link id="Theme" rel="stylesheet" href="stylesheets/Dark.css">
 </head>
 <body>
 
@@ -18,6 +17,11 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
+  <section class="setings">
+	<label name="style">Theme:</label>
+	<input id="themeSwitch" type="button" value="Light" onclick="changeHref()">
+  </section>
 
   <section class="hero">
     <h1>Ultra-Minimal & Responsive</h1>
@@ -45,7 +49,7 @@
   <footer>
     <p>&copy; 2026 BrandName. All rights reserved.</p>
   </footer>
-
+  <script src="features.js"></script>
 </body>
 </html>
 
