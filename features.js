@@ -6,9 +6,15 @@ let n = styles.length;
 function changeHref() {
     const link = document.getElementById("Theme");
 	const butn = document.getElementById("themeSwitch");
-	
-    // Example: pick a random URL from the list
-    link.href =  "stylesheets/" + styles[c%n];
+
+    if (styles[c%n].includes("Crazy")){
+        if (confirm("A Crazy Stylesheet will be Applied.\n
+                     Click No to skip")){
+	    link.href =  "stylesheets/" + styles[c%n];
+	}
+    }else{
+        link.href =  "stylesheets/" + styles[c%n];
+    }
 	c++;
     // Optional: update link text
     butn.value = styles[c%n].split(".")[0];
