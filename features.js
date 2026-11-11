@@ -8,8 +8,7 @@ function changeHref() {
 	const butn = document.getElementById("themeSwitch");
 
     if (styles[c%n].includes("Crazy")){
-        if (confirm("A Crazy Stylesheet will be Applied.\n
-                     Click No to skip")){
+        if (confirm("A Crazy Stylesheet will be Applied.\nClick No to skip")){
 	    link.href =  "stylesheets/" + styles[c%n];
 	}
     }else{
