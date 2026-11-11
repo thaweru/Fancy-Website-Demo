@@ -1,5 +1,5 @@
 console.log("Hello to Javascript!!");
-let styles = ["Minimal.css", "Dark.css"];
+let styles = ["Minimal.css", "Dark.css", "Crazy.css"];
 let c = 0;
 let n = styles.length;
 
